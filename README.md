@@ -12,8 +12,8 @@ docker create \
 --name=webenv-httpd \
 -p 80:80 \
 -p 443:443 \
--e DOMAIN=<DATABASE PASSWORD> \
--e FCGI_URL=<DATABASE PASSWORD> \
+-e DOMAIN=<example.tld> \
+-e FCGI_URL=<hostname> \
 -v </path/to/config>:/config \
 -v </path/to/www>:/www \
 andreiio/webenv-httpd
