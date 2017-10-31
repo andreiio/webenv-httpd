@@ -5,6 +5,16 @@ a2enmod proxy proxy_fcgi rewrite ssl vhost_alias
 D="${DOMAIN:-web.env}"
 F="${FCGI_URL:php}"
 
+# Make sure permissions are right
+UID=${UID:1000}
+GID=${GID:1000}
+
+usermod -o -u "$UID" www-data
+groupmod -o -g "$GID" www-data
+
+chown -R www-data:www-data /config
+chown -R www-data:www-data /www
+
 # Populate the /config dir if it's empty
 if [ -d /config -a -z "$(ls -A /config)" ]; then
 
