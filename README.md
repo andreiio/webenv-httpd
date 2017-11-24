@@ -14,8 +14,8 @@ docker create \
 -p 443:443 \
 -e DOMAIN=<example.tld> \
 -e FCGI_URL=<hostname> \
--e UID=<uid> \
--e GID=<gid> \
+-e PUID=<uid> \
+-e PGID=<gid> \
 -v </path/to/config>:/config \
 -v </path/to/www>:/www \
 andreiio/webenv-httpd
